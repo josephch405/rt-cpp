@@ -3,6 +3,7 @@
 
 #include <cmath>
 #include <iostream>
+#include "vec4.h"
 
 using std::sqrt;
 
@@ -10,6 +11,7 @@ class vec3
 {
 public:
     vec3() : e{0, 0, 0} {}
+    vec3(vec4 v) : e{v[0], v[1], v[2]} {}
     vec3(double x, double y, double z) : e{x, y, z} {}
 
     double x() const { return e[0]; }
@@ -54,11 +56,12 @@ public:
         return e[0] * e[0] + e[1] * e[1] + e[2] * e[2];
     }
 
+    vec3 normalize();
+
 public:
     double e[3];
 };
 
-using point3 = vec3;
 using color = vec3;
 
 inline std::ostream &operator<<(std::ostream &out, const vec3 &v)
@@ -79,6 +82,17 @@ inline vec3 operator-(const vec3 &v, const vec3 &w)
 inline vec3 operator*(const vec3 &v, const vec3 &w)
 {
     return vec3(v[0] * w[0], v[1] * w[1], v[2] * w[2]);
+}
+
+inline bool operator==(const vec3 &v, const vec3 &w)
+{
+    vec3 u = v - w;
+    return u.length() < 0.00001;
+}
+
+inline bool operator!=(const vec3 &v, const vec3 &w)
+{
+    return !(v == w);
 }
 
 inline vec3 operator*(const vec3 &v, const double t)

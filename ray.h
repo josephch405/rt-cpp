@@ -1,28 +1,27 @@
 #ifndef RAY_H
 #define RAY_H
 
-#include "vec3.h"
+#include "linalg/vec4.h"
 
 class ray
 {
 public:
     ray() {}
-    ray(const point3 &origin, const vec3 &direction)
+    ray(const point &origin, const vector &direction)
         : orig(origin), dir(direction)
     {
     }
 
-    point3 origin() const { return orig; }
-    point3 direction() const { return dir; }
+    point origin() const { return orig; }
+    vector direction() const { return dir; }
 
-    point3 at(double t) const
+    point at(double t) const
     {
-        return orig + t * dir;
+        return point(orig + t * dir);
     }
 
-public:
-    vec3 dir;
-    point3 orig;
+    point orig;
+    vector dir;
 };
 
 #endif

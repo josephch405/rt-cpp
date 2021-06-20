@@ -1,7 +1,7 @@
 #ifndef COLOR_H
 #define COLOR_H
 
-#include "rt_demo.h"
+#include "utils.h"
 
 #include <iostream>
 

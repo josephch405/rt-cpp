@@ -2,18 +2,20 @@
 #define HITTABLE_H
 
 #include "ray.h"
+#include "linalg/vec4.h"
 
 struct hit_record
 {
-    point3 p;
-    vec3 normal;
+    point p;
+    vec4 normal;
     double t;
     bool front_face;
 
-    inline bool set_face_normal(const ray &r, const vec3 &outward_normal)
+    inline bool set_face_normal(const ray &r, const vec4 &outward_normal)
     {
         front_face = dot(r.direction(), outward_normal) < 0;
         normal = front_face ? outward_normal : -outward_normal;
+        return true;
     }
 };
 
