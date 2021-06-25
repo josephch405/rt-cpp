@@ -91,7 +91,9 @@ inline mat4 operator-(const mat4 &a, const mat4 &b)
 }
 
 // Matrix multiply
-inline mat4 operator*(const mat4 &a, const mat4 &b);
+mat4 operator*(const mat4 &a, const mat4 &b);
+
+vec4 operator*(const mat4 &a, const vec4 &v);
 
 inline bool operator==(const mat4 &a, const mat4 &b)
 {
@@ -117,5 +119,7 @@ inline mat4 operator/(const mat4 &a, const double t)
 {
     return a * (1 / t);
 }
+
+mat4 I4 = mat4({{1, 0, 0, 0}, {0, 1, 0, 0}, {0, 0, 1, 0}, {0, 0, 0, 1}});
 
 #endif
