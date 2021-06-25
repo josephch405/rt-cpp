@@ -12,6 +12,7 @@ public:
     double e[4];
     vec4() : e{0, 0, 0, 0} {}
     vec4(double x, double y, double z, double w) : e{x, y, z, w} {}
+    vec4(double v[4]) : e{v[0], v[1], v[2], v[3]} {}
 
     double x() const { return e[0]; }
     double y() const { return e[1]; }
@@ -58,6 +59,8 @@ public:
     {
         return e[0] * e[0] + e[1] * e[1] + e[2] * e[2] + e[3] * e[3];
     }
+
+    double dot(const vec4 v) const;
 };
 
 class point : public vec4

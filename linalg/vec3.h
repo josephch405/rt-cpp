@@ -19,7 +19,7 @@ public:
     double z() const { return e[2]; }
 
     vec3 operator-() const { return vec3(-e[0], -e[1], -e[2]); }
-    double operator[](int i) const { return e[i]; }
+    const double operator[](int i) const { return e[i]; }
     double &operator[](int i) { return e[i]; }
 
     vec3 &operator+=(const vec3 &v)
@@ -46,17 +46,19 @@ public:
         return *this;
     }
 
-    double length()
+    double length() const
     {
         return sqrt(length_squared());
     }
 
-    double length_squared()
+    double length_squared() const
     {
         return e[0] * e[0] + e[1] * e[1] + e[2] * e[2];
     }
 
-    vec3 normalize();
+    vec3 normalize() const;
+
+    double dot(const vec3 v) const;
 
 public:
     double e[3];
@@ -112,7 +114,7 @@ inline vec3 operator/(const vec3 &v, const double t)
 
 inline double dot(const vec3 &v, const vec3 &w)
 {
-    return v[0] * w[0] + v[1] * w[1] + v[2] * w[2];
+    return v.dot(w);
 }
 
 inline vec3 cross(const vec3 &v, const vec3 &w)
