@@ -3,12 +3,14 @@ cc_library(
     srcs = [
         "mat3.cc",
         "mat4.cc",
+        "vec.cc",
         "vec3.cc",
         "vec4.cc",
     ],
     hdrs = [
         "mat3.h",
         "mat4.h",
+        "vec.h",
         "vec3.h",
         "vec4.h",
     ],

@@ -1,7 +1,17 @@
 #include <gtest/gtest.h>
 #include "vec3.h"
+#include "vec.h"
 #include "mat3.h"
 #include "mat4.h"
+
+TEST(VecTests, Basics)
+{
+    double a[2]{1, 3};
+    vec<2> v = vec<2>(a);
+    a[0] = 10;
+    ASSERT_EQ(v[0], 1);
+    ASSERT_EQ(v[1], 3);
+}
 
 TEST(Mat3Tests, Assign)
 {
