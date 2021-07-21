@@ -38,6 +38,6 @@ inline double clamp(double x, double min, double max)
 }
 
 #include "ray.h"
-#include "linalg/vec3.h"
+#include "linalg/vec.h"
 
 #endif

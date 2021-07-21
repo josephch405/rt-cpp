@@ -5,11 +5,18 @@
 
 #include <iostream>
 
+using color = vec3;
+
+vector make_color(double a, double b, double c)
+{
+    return make_vec3(a, b, c);
+}
+
 void write_color(std::ostream &out, color pixel_color, int samples_per_pixel)
 {
-    auto r = pixel_color.x();
-    auto g = pixel_color.y();
-    auto b = pixel_color.z();
+    auto r = pixel_color[0];
+    auto g = pixel_color[1];
+    auto b = pixel_color[2];
 
     auto scale = 1.0 / samples_per_pixel;
     r *= scale;

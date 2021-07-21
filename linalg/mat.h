@@ -156,6 +156,29 @@ mat<N, J> operator*(const mat<N, M> &a, const mat<M, J> &b)
     return output;
 }
 
+// Matrix Vector multiplies
+template <int N, int M>
+vec<N> operator*(const mat<N, M> &a, const vec<M> &v)
+{
+    vec<N> output = vec<N>();
+    for (int i = 0; i < N; i++)
+    {
+        output[i] = a[i].dot(v);
+    }
+    return output;
+}
+
+template <int N, int M>
+vec<M> operator*(const vec<N> &v, const mat<N, M> &a)
+{
+    vec<M> output = vec<M>();
+    for (int i = 0; i < M; i++)
+    {
+        output[i] = v.dot(a[i]);
+    }
+    return output;
+}
+
 template <int N, int M>
 inline bool operator==(const mat<N, M> &a, const mat<N, M> &b)
 {

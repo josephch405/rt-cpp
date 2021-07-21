@@ -1,7 +1,7 @@
 #ifndef RAY_H
 #define RAY_H
 
-#include "linalg/vec4.h"
+#include "linalg/vec.h"
 
 class ray
 {

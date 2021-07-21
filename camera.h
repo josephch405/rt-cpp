@@ -13,10 +13,15 @@ public:
         auto viewport_width = viewport_height * aspect_ratio;
         auto focal_length = 1.0;
 
-        origin = point(0, 0, 0);
-        horizontal = vector(viewport_width, 0, 0);
-        vertical = vector(0, viewport_height, 0);
-        lower_left_corner = origin - horizontal / 2 - vertical / 2 - vector(0, 0, focal_length);
+        // TODO: Clean up initialization flow somehow
+        double _o[3]{0};
+        origin = point(_o);
+        double _h[3]{viewport_width, 0, 0};
+        horizontal = vector(_h); // {viewport_width, 0, 0}
+        double _v[3]{0, viewport_height, 0};
+        vertical = vector(_v);
+        double d[3]{0, 0, focal_length};
+        lower_left_corner = origin - horizontal / 2 - vertical / 2 - vector(d);
     };
 
     ray get_ray(double u, double v)

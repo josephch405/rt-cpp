@@ -2,7 +2,7 @@
 #define SPHERE_H
 
 #include "hittable.h"
-#include "linalg/vec3.h"
+#include "linalg/vec.h"
 
 class sphere : public hittable
 {
