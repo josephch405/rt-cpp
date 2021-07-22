@@ -93,12 +93,12 @@ public:
 template <int N>
 std::ostream &operator<<(std::ostream &out, const vec<N> &v)
 {
-    out << '[';
-    for (int i = 0; i < N - 1; i++)
+    out << '[' << v[0];
+    for (int i = 1; i < N; i++)
     {
-        out << v[0] << ',';
+        out << ',' << v[i];
     }
-    return out << v[N - 1] << ']';
+    return out << ']';
 };
 
 template <int N>

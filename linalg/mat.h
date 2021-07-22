@@ -80,7 +80,7 @@ public:
 
     mat<M, N> transpose() const
     {
-        mat<M, N> out;
+        mat<M, N> out = mat<M, N>();
         for (int i = 0; i < N; i++)
         {
             for (int j = 0; j < M; j++)
@@ -186,6 +186,9 @@ inline bool operator==(const mat<N, M> &a, const mat<N, M> &b)
     {
         if (a[i] != b[i])
         {
+            std::cerr << "i wrong: " << i << std::endl;
+            std::cerr << a[i] << std::endl;
+            std::cerr << b[i] << std::endl;
             return false;
         }
     }

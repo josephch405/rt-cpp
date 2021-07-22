@@ -51,6 +51,8 @@ TEST(Mat4Tests, Assign)
     mat4 a = mat4(_a);
     ASSERT_EQ(a[0][0], 1);
     ASSERT_EQ(a[3][2], 3);
+    ASSERT_EQ(a[2][1], 8);
+    ASSERT_EQ(a[1][0], 5);
 }
 
 TEST(Mat4Tests, Equality)
@@ -85,4 +87,11 @@ TEST(Mat4Tests, MatrixVectorMult)
     double _v[4]{18, 24, 33, 1};
     vec4 v = vec4(_v);
     ASSERT_EQ(a * u, v);
+}
+
+TEST(Mat4Tests, Transpose)
+{
+    double _a[4][4] = {{0, 9, 3, 0}, {9, 8, 0, 8}, {1, 8, 5, 3}, {0, 0, 5, 8}};
+    double _b[4][4] = {{0, 9, 1, 0}, {9, 8, 8, 0}, {3, 0, 5, 5}, {0, 8, 3, 8}};
+    ASSERT_EQ(mat4(_a).transpose(), mat4(_b));
 }
